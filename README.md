@@ -65,7 +65,45 @@ docker run --name tasker_app -p 8080-8081:8080-8081 -t tasker-application --netw
 
 Deploy in OCI
 
-1. 
+1. Get access to Oracle cloud
+
+2. Create 2 compute nodes, One for the mysql database and one for the application following the documentation:
+
+https://docs.oracle.com/en-us/iaas/Content/Compute/Tasks/launchinginstance.htm#:~:text=Open%20the%20navigation%20menu%20and,Click%20Create%20instance.
+
+3. Make sure you assign public IPv4 address and create a VCN while creating the first instance say mysql and use the same VCN for the application instance
+
+4. You also need to configure the ingress to enable ports for communication following the documentation:
+
+https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/securitylists.htm
+
+5. We need to build our application docker image and push to any public repository. I have used OCI registry for this purpose following the documentation:
+
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html
+
+Below are the commands used to build and push the tasker docker image to OCI registry
+
+Docker login to OCI registry:
+
+docker login ca-toronto-1.ocir.io --username <tenancy-namespace/<username>  --password <password>
+
+Build my application to OCI container artifactory:
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+docker build -t <registry>/<namespace>/tasker-application:latest .
+
+6. Install docker in your compute nodes following the documentation:
+
+https://oracle-base.com/articles/linux/docker-install-docker-on-oracle-linux-ol8
+
+
+7. Start mysql in the mysql compute node:
+sudo docker run -d   --name mysql_0  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tasker mysql:8.0.32
+
+8. Start tasker application in the application compute node:
+sudo docker run --name tasker_app -p 8080-8081:8080-8081 -t <registry>/<namespace>/tasker-application
+
 
 
 

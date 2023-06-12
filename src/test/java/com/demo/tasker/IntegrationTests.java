@@ -15,6 +15,8 @@ import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.core.MediaType;
 
+// NOT COMPLETE AND NOT WORKING
+
 @ExtendWith(DropwizardExtensionsSupport.class)
 public class IntegrationTests {
 
