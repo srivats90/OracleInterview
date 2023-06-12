@@ -36,3 +36,37 @@ Health Check
 To see your applications health enter url `http://localhost:8081/healthcheck`
 
 
+
+Run with Docker locally
+---
+
+1. Build the docker image. Dockerfile is available in the project
+
+docker  build -t tasker-application .
+
+2. Create docker networking to enable communication between the database and the application containers
+
+ docker network create demo
+ 
+3. Pull the mysql docker image and run the mysql docker container with database tasker
+ 
+ docker pull mysql:8.0.32
+ docker run -d --name mysql_0 --network demo --network-alias mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tasker mysql:8.0.32
+ 
+4. You can check the container status and stop container using below commands
+ 
+docker ps
+docker stop mysql_0
+docker rm mysql_0
+
+5. Run the tasker application in the same network
+docker run --name tasker_app -p 8080-8081:8080-8081 -t tasker-application --network demo
+
+
+Deploy in OCI
+
+1. 
+
+
+
+
