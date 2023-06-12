@@ -1,0 +1,6 @@
+com/demo/tasker/TaskerApplication$1.class
+com/demo/tasker/db/TaskDAO.class
+com/demo/tasker/api/Task.class
+com/demo/tasker/resources/TaskResource.class
+com/demo/tasker/TaskerApplication.class
+com/demo/tasker/TaskerConfiguration.class
