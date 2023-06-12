@@ -4,6 +4,14 @@
 Tasker is a tasks management system.
 It helps you to organize your tasks with dates
 
+API
+----
+
+The APIs available in tasker with example requests are below:
+
+https://documenter.getpostman.com/view/27886299/2s93sdYrZz
+
+
 Overview
 ---
 
@@ -51,7 +59,7 @@ docker  build -t tasker-application .
 3. Pull the mysql docker image and run the mysql docker container with database tasker
  
  docker pull mysql:8.0.32
- docker run -d --name mysql_0 --network demo --network-alias mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tasker mysql:8.0.32
+ docker run -d --name mysql_0 --network demo --network-alias mysql -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=tasker mysql:8.0.32
  
 4. You can check the container status and stop container using below commands
  
@@ -64,6 +72,7 @@ docker run --name tasker_app -p 8080-8081:8080-8081 -t tasker-application --netw
 
 
 Deploy in OCI
+---
 
 1. Get access to Oracle cloud
 
@@ -99,7 +108,7 @@ https://oracle-base.com/articles/linux/docker-install-docker-on-oracle-linux-ol8
 
 
 7. Start mysql in the mysql compute node:
-sudo docker run -d   --name mysql_0  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=tasker mysql:8.0.32
+sudo docker run -d   --name mysql_0  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=tasker mysql:8.0.32
 
 8. Start tasker application in the application compute node:
 sudo docker run --name tasker_app -p 8080-8081:8080-8081 -t <registry>/<namespace>/tasker-application

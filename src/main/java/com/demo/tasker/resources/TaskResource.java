@@ -55,8 +55,6 @@ public class TaskResource {
 			return Response.status(Status.NOT_FOUND).build();
 	}
 	
-    
-
 	@POST
 	@UnitOfWork
 	public Response createTask(Task newTask) throws URISyntaxException   {
