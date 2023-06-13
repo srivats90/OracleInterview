@@ -44,6 +44,12 @@ Health Check
 To see your applications health enter url `http://localhost:8081/healthcheck`
 
 
+Testing using postman collection
+---
+You can test the application using the below postman collection which tests all the operations defined
+
+/TaskerApplication/src/test/resources/Tasker Application.postman_collection.json
+
 
 Run with Docker locally
 ---

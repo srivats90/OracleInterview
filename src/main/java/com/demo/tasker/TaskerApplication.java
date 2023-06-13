@@ -41,6 +41,7 @@ public class TaskerApplication extends Application<TaskerConfiguration> {
     public void run(final TaskerConfiguration configuration,
                     final Environment environment) {
         // TODO: implement application
+    	
 		final TaskDAO taskDAO = new TaskDAO(hibernateBundle.getSessionFactory());
 		
 		final TaskResource resource = new TaskResource(taskDAO);

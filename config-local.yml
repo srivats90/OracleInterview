@@ -1,0 +1,18 @@
+logging:
+  level: DEBUG
+  loggers:
+    io.dropwizard.archetypes: DEBUG
+server:
+  rootPath: /api/*
+
+# Database settings.
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password: password
+  url: jdbc:mysql://localhost:3306/tasker
+  properties:
+    hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate.show_sql: true
+    hibernate.generate_statistics: false
+    hibernate.hbm2ddl.auto: create # validates schema when service is started

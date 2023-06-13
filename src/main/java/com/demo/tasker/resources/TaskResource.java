@@ -39,7 +39,7 @@ public class TaskResource {
 	
     @GET
     @UnitOfWork
-    public List<Task> listPeople() {
+    public List<Task> listTask() {
         return taskDAO.findAll();
     }
 
